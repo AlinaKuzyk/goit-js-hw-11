@@ -55,7 +55,6 @@ async function handleLoadMore() {
 async function amountData() {
   try {
     const { data } = await pixabayApi.fetchPhotos();
-    //  console.log({ data });
 
     btnLoadMore.classList.remove('is-hidden');
 
@@ -63,7 +62,11 @@ async function amountData() {
       Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.'
       );
+      btnLoadMore.classList.add('is-hidden');
       return;
+    }
+    if (data.totalHits < pixabayApi.per_page) {
+      btnLoadMore.classList.add('is-hidden');
     }
 
     clearForm();
