@@ -13,19 +13,19 @@ export class PixabayApi {
   page = 1;
   per_page = 40;
 
-  fetchPhotos() {
-    return axios
-      .get(
+  async fetchPhotos() {
+    try {
+      const responce = await axios.get(
         `${this.#BASE_URL}/?key=${this.#API_KEY}&q=${
           this.query
         }&image_type=photo&orientation=horizontal&safesearch=true&page=${
           this.page
         }&per_page=${this.per_page}`
-      )
-      .then(data => {
-        this.incrementPage();
-        return data;
-      });
+      );
+      return responce;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   incrementPage() {

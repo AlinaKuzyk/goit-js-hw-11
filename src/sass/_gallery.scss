@@ -36,12 +36,18 @@ p {
   align-items: center;
 }
 
+.submit-btn{
+   display: block;
+   border: none;
+   background-color: lightskyblue;
+}
+
 .gallery {
-  padding: 15px;
+//   padding-top: 15px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+
 }
 
 .load-more {
@@ -52,4 +58,29 @@ p {
 
 .load-more.is-hidden{
    display: none;
+}
+
+.photo-card {
+   position: relative;
+   flex-basis: calc((100% - 4 * 20px) / 4);
+}
+
+.info{
+   display: flex;
+   position: absolute;
+    bottom: 0px;
+    justify-content: center;
+width: 340px;
+background-color: aliceblue;
+color: black;
+}
+
+.info-item{
+   flex-direction: column;
+display: flex;
+text-align: center;
+margin-right: 10px;
+&:last-child{
+   margin-right: 0px;
+}
 }
