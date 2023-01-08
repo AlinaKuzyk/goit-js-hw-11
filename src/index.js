@@ -31,6 +31,7 @@ function handleSearchPhoto(event) {
 async function handleLoadMore() {
   try {
     pixabayApi.incrementPage();
+    //   { data} - это деструктуризация того, что мы получаем из запроса на сервер
     const { data } = await pixabayApi.fetchPhotos();
 
     if (pixabayApi.page === data.hits.total) {
